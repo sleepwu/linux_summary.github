@@ -1,4 +1,4 @@
-# 1.linux下运行gdal时抛出异常PROJ: pj_obj_create: Cannot find proj.db解决方案
+1.linux下运行gdal时抛出异常PROJ: pj_obj_create: Cannot find proj.db解决方案
 
 这里给出两个方案，方案一笔者亲测有效，方案二是在搜索的时候找到的建议，但是苦于笔者非root权限没有尝试
 方案一：显然通过报错我们知道gdal在运行时无法找到这个投影的数据库proj.db文件，那解决思路就是我们需要让程序在运行时能够搜索到这个文件。
