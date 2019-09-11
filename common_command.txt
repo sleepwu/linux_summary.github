@@ -1,0 +1,22 @@
+1. Python 调用linux命令
+   import os
+   os.system("command")
+   
+2.Linux 下脚本编写
+  #!/bin/bash 解释器选择
+  command
+  
+3.wget 命令使用
+  wget -P save_path download_url --user=username --password=password
+  
+4.查看程序id进程号以及杀死程序
+  PS -ef|grep name
+  kill -9 name_id
+  
+5.& 和 nohup 命令：
+  &:command >out.file 2>&1 & 表示在后台运行，但是控制台终端关闭的时候，程序也会停止运行
+  nohup: nohup command >out.file 2>&1 & 表示在后台运行，控制台终端关闭的时候，程序不会停止运行，但是非正常退出时可能会停止，因此需要exit
+  0→标准输入， 1→标准输出， 2→错误异常输出，  “>out.file” 意思是将程序输出的内容输出到文件out.file里面，等价于 “1>file”；“2>&1”表示将错误重定向到1上
+ 
+6.关闭某一类型所有进程
+  PS -ef|grep xxx|grep -v grep|awk '{print $2}'|xargs kill -9 慎用
