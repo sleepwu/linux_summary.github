@@ -1,53 +1,53 @@
-1.	Anaconda安装
+1.Anaconda安装
 下载linux版本Anaconda
 执行：  bash Anaconda2-5.0.0.1-Linux-x86_64.sh （文件名）
 回车，并接受协议，自己设置安装路径或根据自定义路径
 初始化anaconda路径，取消安装VScode
 修改.bashrc文件的环境变量配置，并source
 
-2.	下载linux版本pycharm
+2.下载linux版本pycharm
 解压文件
 配置环境
 若依赖于MobaXtern不会存在使用不了图形界面问题（否则需要结合Xming进行操作）
 安装Xming，并进行Putty设置
 
-3.	Opencv安装
+3.Opencv安装
 pip install opencv-python
 
-4.	GDAL安装
-a)	下载gdal源码包，解压
-b)	编译三部曲，./config ; make; make install
-c)	切换到.~/gdal/swig/python 目录下，执行命令: python setup.py build 和 python setup.py install
-d)	重新进入服务器即可
+4.GDAL安装
+a)下载gdal源码包，解压
+b)编译三部曲，./config ; make; make install
+c)切换到.~/gdal/swig/python 目录下，执行命令: python setup.py build 和 python setup.py install
+d)重新进入服务器即可
 
-5.	Matlab链接库安装
+5.Matlab链接库安装
 将build文件夹建立在自己文件夹下，再python安装，详见：
 https://ww2.mathworks.cn/help/matlab/matlab_external/install-matlab-engine-api-for-python-in-nondefault-locations.html
 
-6.	Tensorflow CPU 安装，直接pip安装，但是要注意对应GCC版本，不然会报错。
+6.Tensorflow CPU 安装，直接pip安装，但是要注意对应GCC版本，不然会报错。
 
-7.	Tensorflow GPU 安装（确保已有显卡驱动）
-①	下载对应版本的CUDA版本，网址： https://developer.nvidia.com/cuda-downloads. 
-②	给下载好的.run文件添加sh执行权限：chmod +x filename.run 然后 ./filename.run
-③	在根目录下创建tmp临时安装文件夹
-④	Accept, 安装toolkits，设置安装路径
-⑤	在CUDA官网下载对应的cudnn文件，先转成.tgz格式（cp xxx.xxx xxx.tgz）再解压
-⑥	最后将解压后的文件夹中的文件复制到cuda安装目录下分别为：
+7.Tensorflow GPU 安装（确保已有显卡驱动）
+a)下载对应版本的CUDA版本，网址： https://developer.nvidia.com/cuda-downloads. 
+b)给下载好的.run文件添加sh执行权限：chmod +x filename.run 然后 ./filename.run
+c)在根目录下创建tmp临时安装文件夹
+d)Accept, 安装toolkits，设置安装路径
+e)在CUDA官网下载对应的cudnn文件，先转成.tgz格式（cp xxx.xxx xxx.tgz）再解压
+f)最后将解压后的文件夹中的文件复制到cuda安装目录下分别为：
 cp -r /home/dwu/softwares/cuda_files/cuda/include/cudnn.h /home/dwu/softwares/cuda-10.0/include/
 cp -r /home/dwu/softwares/cuda_files/cuda/lib64/libcudnn* /home/dwu/softwares/cuda-10.0/lib64/
 chmod a+r /home/dwu/softwares/cuda-10.0/include/cudnn/h /home/dwu/softwares/cuda-10.0/lib64/libcudnn*
-⑦	添加环境变量，分别为 ./cuda-10.0/bin  和 ./cuda-10.0/lib64
+g)添加环境变量，分别为 ./cuda-10.0/bin  和 ./cuda-10.0/lib64
 export PATH="/home/dwu/softwares/cuda-10.0/bin:$PATH"
 export LD_LIBRARY_PATH=/home/dwu/softwares/cuda-10.0/lib64:$LD_LIBRARY_PATH
 
-8.	高版本gcc编译
-①	下载gcc文件：wget http://mirrors-usa.go-parts.com/gcc/releases/gcc-5.4.0/gcc-5.4.0.tar.bz2
-②	解压并切换到目录下：bzcat gcc-5.4.0.tar.bz2|tar xvf –  cd gcc-5.4.0
-③	下载依赖库：./contrib/download_prerequisites
+8.高版本gcc编译
+a)下载gcc文件：wget http://mirrors-usa.go-parts.com/gcc/releases/gcc-5.4.0/gcc-5.4.0.tar.bz2
+b)解压并切换到目录下：bzcat gcc-5.4.0.tar.bz2|tar xvf –  cd gcc-5.4.0
+c)下载依赖库：./contrib/download_prerequisites
 PS:若中途退出了记得删除原来的文件，不然会报错，在gcc-5.4.0目录下
-④	开始编译gcc5.4.0
+d)开始编译gcc5.4.0
 Config: ../configure --disable-checking --enable-languages=c,c++ --disable-multilib --prefix=“安装目录“ --enable-threads=posix
 make -j32 && make install
-⑤	设置环境变量
+e)设置环境变量
 export PATH=./gcc-5.4/bin:./gcc-5.4/lib64:$PATH
 export LD_LIBRARY_PATH=./gcc-5.4/lib/:$LD_LIBRARY_PATH
