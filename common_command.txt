@@ -20,3 +20,7 @@
  
 6.关闭某一类型所有进程
   PS -ef|grep xxx|grep -v grep|awk '{print $2}'|xargs kill -9 慎用
+  
+7.查询当前文件夹下面的文件或文件个数
+  ls -d xxx(通配符,如：*.tif表示查询该目录下所有后缀为.tif的文件)
+  ls -d xxx|wc -l 则输出文件的数量
