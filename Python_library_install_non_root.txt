@@ -24,7 +24,8 @@ B.3.X版本
 a)下载gdal源码包和Proj6.X源码包，解压
 b)先进行Proj6.X的源码编译，因为gdal3.X需要依赖Proj6.X进行编译，而之前的2.X是不需要的
 （如果中途报pkg的错，则输入export PKG_CONFIG_PATH=/home/dwu/software/anaconda/lib/pkgconfig/:$PKG_CONFIG_PATH，就是anaconda下面的路径，再继续编译）；
-c)再进行gdal的源码编译，同上
+c)将proj6添加到环境变量中，如果仍然报错，在进行gdal编译时加上参数--with-proj=/home/dwu/sorfwares/GDAL/proj6，就是安装proj6.X的文件夹
+d)再进行gdal的源码编译，同上
 
 5.Matlab链接库安装
 将build文件夹建立在自己文件夹下，再python安装，详见：
