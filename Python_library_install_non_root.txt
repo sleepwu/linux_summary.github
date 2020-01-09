@@ -16,7 +16,7 @@ pip install opencv-python
 
 4.GDAL安装
 a)下载gdal源码包，解压
-b)编译三部曲，./config ; make; make install
+b)编译三部曲，./configure; make; make install
 c)切换到.~/gdal/swig/python 目录下，执行命令: python setup.py build 和 python setup.py install
 d)重新进入服务器即可
 
