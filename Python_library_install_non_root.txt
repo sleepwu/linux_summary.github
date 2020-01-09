@@ -15,10 +15,16 @@
 pip install opencv-python
 
 4.GDAL安装
+A.2.X版本
 a)下载gdal源码包，解压
-b)编译三部曲，./configure; make; make install
+b)编译三部曲，./configure --prefix=指定的安装路径; make; make install，记得添加环境变量lib和bin
 c)切换到.~/gdal/swig/python 目录下，执行命令: python setup.py build 和 python setup.py install
 d)重新进入服务器即可
+B.3.X版本
+a)下载gdal源码包和Proj6.X源码包，解压
+b)先进行Proj6.X的源码编译，因为gdal3.X需要依赖Proj6.X进行编译，而之前的2.X是不需要的
+（如果中途报pkg的错，则输入export PKG_CONFIG_PATH=/home/share/wli/software/anaconda3c/lib/pkgconfig/:$PKG_CONFIG_PATH，再继续编译）；
+c)再进行gdal的源码编译，同上
 
 5.Matlab链接库安装
 将build文件夹建立在自己文件夹下，再python安装，详见：
